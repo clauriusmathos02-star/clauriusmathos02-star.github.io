@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Coin du Savoir — Culture générale & curiosités</title>
+<meta name="description" content="Quiz, anecdotes et articles courts pour nourrir votre curiosité, une fiche à la fois.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6424476846711718"
+     crossorigin="anonymous"></script>
+<style>
+  :root{
+    --ink:#161f1a;
+    --felt:#27392f;
+    --felt-light:#324a3d;
+    --brass:#c9a227;
+    --brass-light:#e1bf52;
+    --parchment:#ece3d0;
+    --parchment-dim:#ddd1b4;
+    --stamp:#8b3a3a;
+    --text-on-felt:#ece3d0;
+    --text-on-parchment:#241f14;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--felt);
+    color:var(--text-on-felt);
+    font-family:'Source Serif 4', serif;
+    line-height:1.55;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- texture ---------- */
+  body{
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(236,227,208,0.05) 1px, transparent 0);
+    background-size:18px 18px;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--felt);
+    border-bottom:1px solid rgba(201,162,39,0.25);
+    padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand-mark{
+    width:34px; height:34px; border:1.5px solid var(--brass);
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:700; color:var(--brass);
+  }
+  .brand-name{font-family:'Fraunces', serif; font-weight:600; font-size:1.25rem;}
+  nav{display:flex; gap:22px;}
+  nav a{
+    font-size:0.78rem;
+    color:var(--parchment-dim);
+    text-decoration:none;
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    border-bottom:1px solid transparent;
+    padding-bottom:3px;
+    transition:border-color .2s, color .2s;
+  }
+  nav a:hover{color:var(--brass-light); border-color:var(--brass-light);}
+  @media (max-width:680px){ nav{display:none;} }
+
+  /* ---------- ad slot ---------- */
+  .ad-slot{
+    max-width:1080px; margin:36px auto; padding:14px;
+    border:1px dashed rgba(236,227,208,0.3);
+    border-radius:4px;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:rgba(236,227,208,0.45);
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    max-width:1080px; margin:0 auto; padding:72px 24px 40px;
+    display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center;
+  }
+  @media (max-width:820px){ .hero{grid-template-columns:1fr; padding-top:48px;} }
+  .eyebrow{
+    color:var(--brass-light); font-size:0.72rem; margin-bottom:14px; display:block;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 5vw, 3.4rem);
+    line-height:1.05;
+  }
+  .hero h1 em{ color:var(--brass-light); font-style:italic; font-weight:500;}
+  .hero p{
+    margin-top:18px; max-width:46ch; color:var(--parchment-dim); font-size:1.05rem;
+  }
+  .hero-cta{
+    margin-top:28px; display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; text-transform:uppercase;
+    letter-spacing:0.06em; padding:13px 22px; border-radius:2px; cursor:pointer;
+    text-decoration:none; display:inline-block; border:1px solid transparent;
+    transition:transform .15s ease, background .2s;
+  }
+  .btn-primary{ background:var(--brass); color:var(--ink); }
+  .btn-primary:hover{ background:var(--brass-light); transform:translateY(-1px); }
+  .btn-ghost{ border-color:rgba(236,227,208,0.4); color:var(--parchment); }
+  .btn-ghost:hover{ border-color:var(--brass-light); color:var(--brass-light); }
+
+  /* ---------- specimen card (signature element) ---------- */
+  .specimen{
+    background:var(--parchment);
+    color:var(--text-on-parchment);
+    border-radius:3px;
+    padding:22px 22px 18px;
+    position:relative;
+    box-shadow:0 18px 40px -12px rgba(0,0,0,0.45);
+    transform:rotate(-1.2deg);
+    transition:transform .35s ease;
+  }
+  .specimen:hover{ transform:rotate(0deg) translateY(-3px); }
+  .specimen::before{
+    content:"";
+    position:absolute; top:10px; right:10px; width:9px; height:9px;
+    border-radius:50%; background:var(--stamp); opacity:0.8;
+  }
+  .specimen-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.65rem;
+    text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--stamp); border-bottom:1px solid rgba(139,58,58,0.25);
+    padding-bottom:8px; margin-bottom:10px; display:block;
+  }
+  .specimen h3{ font-size:1.15rem; margin-bottom:8px; }
+  .specimen p{ font-size:0.92rem; color:#4a4332; margin:0; }
+
+  /* ---------- section shell ---------- */
+  section{ max-width:1080px; margin:0 auto; padding:64px 24px; }
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin-bottom:30px; flex-wrap:wrap; gap:10px;
+    border-bottom:1px solid rgba(201,162,39,0.3); padding-bottom:16px;
+  }
+  .section-head h2{ font-size:1.8rem; }
+  .section-num{ color:var(--brass-light); font-size:0.75rem; }
+
+  /* ---------- fun facts (flip cards) ---------- */
+  .facts-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:780px){ .facts-grid{grid-template-columns:1fr;} }
+  .flip-card{ perspective:1200px; height:230px; cursor:pointer; }
+  .flip-inner{
+    position:relative; width:100%; height:100%; transition:transform .6s;
+    transform-style:preserve-3d;
+  }
+  .flip-card.flipped .flip-inner{ transform:rotateY(180deg); }
+  .flip-face{
+    position:absolute; inset:0; backface-visibility:hidden;
+    border-radius:4px; padding:22px; display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .flip-front{ background:var(--felt-light); border:1px solid rgba(201,162,39,0.3); }
+  .flip-front .mono{ font-size:0.68rem; color:var(--brass-light); }
+  .flip-front h3{ font-size:1.1rem; margin-top:14px; color:var(--parchment); }
+  .flip-front .hint{ font-size:0.72rem; color:rgba(236,227,208,0.5); font-family:'IBM Plex Mono',monospace; text-transform:uppercase; }
+  .flip-back{
+    background:var(--parchment); color:var(--text-on-parchment);
+    transform:rotateY(180deg); font-size:0.92rem;
+  }
+  .flip-back strong{ color:var(--stamp); }
+
+  /* ---------- articles ---------- */
+  .articles-list{ display:flex; flex-direction:column; gap:14px; }
+  .article{
+    background:var(--felt-light); border:1px solid rgba(201,162,39,0.25);
+    border-radius:4px; overflow:hidden;
+  }
+  .article-head{
+    padding:18px 22px; display:flex; align-items:center; justify-content:space-between;
+    cursor:pointer; gap:14px;
+  }
+  .article-head .mono{ font-size:0.65rem; color:var(--brass-light); }
+  .article-head h3{ font-size:1.08rem; color:var(--parchment); font-weight:500; font-family:'Fraunces',serif; margin-top:4px;}
+  .article-toggle{
+    width:26px; height:26px; flex:0 0 auto; border:1px solid var(--brass);
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    color:var(--brass-light); font-family:'IBM Plex Mono',monospace; transition:transform .25s;
+  }
+  .article.open .article-toggle{ transform:rotate(45deg); }
+  .article-body{
+    max-height:0; overflow:hidden; transition:max-height .35s ease;
+    padding:0 22px;
+  }
+  .article.open .article-body{ padding-bottom:20px; }
+  .article-body p{ color:var(--parchment-dim); font-size:0.94rem; max-width:65ch; }
+
+  /* ---------- quiz ---------- */
+  .quiz-wrap{
+    background:var(--parchment); color:var(--text-on-parchment);
+    border-radius:6px; padding:32px; position:relative;
+    box-shadow:0 24px 50px -18px rgba(0,0,0,0.5);
+  }
+  .quiz-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:22px; }
+  .quiz-progress{ font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--stamp); text-transform:uppercase; letter-spacing:0.05em; }
+  .quiz-score{ font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:#4a4332; }
+  .quiz-q{ font-family:'Fraunces',serif; font-size:1.35rem; margin-bottom:22px; font-weight:600; }
+  .quiz-options{ display:grid; gap:10px; }
+  .quiz-opt{
+    text-align:left; padding:14px 16px; border:1px solid #c9bb98; border-radius:4px;
+    background:#fbf8f0; font-family:'Source Serif 4',serif; font-size:0.96rem;
+    cursor:pointer; transition:background .15s, border-color .15s;
+  }
+  .quiz-opt:hover{ border-color:var(--stamp); }
+  .quiz-opt.correct{ background:#e3ecdd; border-color:#5c7a4c; }
+  .quiz-opt.wrong{ background:#f1ddd9; border-color:var(--stamp); }
+  .quiz-opt[disabled]{ cursor:default; }
+  .quiz-feedback{ margin-top:16px; font-size:0.88rem; color:#4a4332; min-height:20px; }
+  .quiz-final{ text-align:center; padding:20px 0; }
+  .quiz-final .score-big{ font-family:'Fraunces',serif; font-size:3rem; color:var(--stamp); }
+  .quiz-final .btn-primary{ margin-top:16px; border:none; }
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid rgba(201,162,39,0.25);
+    padding:40px 24px 60px; text-align:center;
+  }
+  footer p{ font-size:0.8rem; color:rgba(236,227,208,0.45); font-family:'IBM Plex Mono',monospace; }
+
+  /* ---------- a11y ---------- */
+  a:focus-visible, button:focus-visible, .flip-card:focus-visible{
+    outline:2px solid var(--brass-light); outline-offset:3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; animation:none !important; scroll-behavior:auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-mark">C</div>
+    <span class="brand-name">Le Coin du Savoir</span>
+  </div>
+  <nav>
+    <a href="#faits">Anecdotes</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#articles">Articles</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="eyebrow mono">Fiche n° 001 — Le Coin du Savoir</span>
+    <h1>Une dose de <em>culture générale</em>, classée comme une collection.</h1>
+    <p>Chaque semaine, de nouvelles fiches : anecdotes vérifiées, quiz pour tester vos réflexes, et petits articles à lire en cinq minutes. Rien à apprendre par cœur, tout à picorer.</p>
+    <div class="hero-cta">
+      <a href="#quiz" class="btn btn-primary">Faire le quiz du jour</a>
+      <a href="#faits" class="btn btn-ghost">Voir les anecdotes</a>
+    </div>
+  </div>
+  <div class="specimen">
+    <span class="specimen-tag">Spécimen du jour · Histoire</span>
+    <h3>Le plus court règne de l'Histoire</h3>
+    <p>Louis XIX de France n'a régné que vingt minutes, le temps de signer son abdication en faveur de son neveu, en 1830.</p>
+  </div>
+</section>
+
+<div class="ad-slot">Emplacement publicitaire — bannière (728×90 / responsive)</div>
+
+<section id="faits">
+  <div class="section-head">
+    <h2>Anecdotes à retourner</h2>
+    <span class="section-num mono">09 fiches</span>
+  </div>
+  <div class="facts-grid">
+
+    <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div><span class="mono">Sciences</span><h3>Le miel ne périme jamais</h3></div>
+          <span class="hint">Retourner →</span>
+        </div>
+        <div class="flip-face flip-back">
+          Des pots de miel vieux de plus de 3000 ans, retrouvés dans des tombes égyptiennes, étaient encore <strong>parfaitement comestibles</strong>. Sa faible teneur en eau empêche bactéries et moisissures de s'y développer.
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div><span class="mono">Géographie</span><h3>Une frontière... de 8 cm</h3></div>
+          <span class="hint">Retourner →</span>
+        </div>
+        <div class="flip-face flip-back">
+          La frontière la plus courte du monde sépare l'Espagne du Maroc au niveau de l'<strong>île de Perejil</strong> et de la ville frontière de Pheasant Island : seulement quelques mètres à certains endroits, due à des accords coloniaux anciens.
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div><span class="mono">Langue</span><h3>Un mot sans voyelle</h3></div>
+          <span class="hint">Retourner →</span>
+        </div>
+        <div class="flip-face flip-back">
+          En tchèque, la phrase <strong>« Strč prst skrz krk »</strong> (« Passe un doigt à travers le cou ») ne contient aucune voyelle classique : le « r » y joue ce rôle.
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div><span class="mono">Espace</span><h3>Le Soleil pèse 99,8 %</h3></div>
+          <span class="hint">Retourner →</span>
+        </div>
+        <div class="flip-face flip-back">
+          Le Soleil concentre à lui seul <strong>99,8 % de la masse</strong> totale du système solaire. Tout le reste — planètes, lunes, astéroïdes et comètes réunis — ne pèse que 0,2 %.
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div><span class="mono">Histoire</span><h3>La guerre la plus courte</h3></div>
+          <span class="hint">Retourner →</span>
+        </div>
+        <div class="flip-face flip-back">
+          La guerre anglo-zanzibarienne de 1896 a duré <strong>environ 38 minutes</strong>, le temps le plus court jamais enregistré pour un conflit entre États.
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div><span class="mono">Biologie</span><h3>Les poulpes ont trois cœurs</h3></div>
+          <span class="hint">Retourner →</span>
+        </div>
+        <div class="flip-face flip-back">
+          Deux cœurs pompent le sang vers les branchies, un troisième fait circuler le reste du corps. Ce troisième cœur <strong>s'arrête</strong> brièvement quand le poulpe nage, ce qui l'épuise vite — il préfère ramper.
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div><span class="mono">Art</span><h3>Un tableau jamais signé</h3></div>
+          <span class="hint">Retourner →</span>
+        </div>
+        <div class="flip-face flip-back">
+          Vermeer ne signait presque jamais ses toiles datées avec certitude. <strong>« La Jeune Fille à la perle »</strong> n'a été authentifiée comme étant de sa main que grâce à l'analyse du style et des pigments.
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" tabindex="0" role="button" aria-pressed="false">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <div><span class="mono">Géographie</span><h3>Un pays sans rivière</h3></div>
+          <span class="hint">Retourner →</span>
+        </div>
+        <div class="flip-face flip-back">
+          L'Arabie saoudite est l'un des plus grands pays au monde à ne posséder <strong>aucun fleuve ni rivière permanente</strong>. Toute son eau de surface dépend des oueds, asséchés une grande partie de l'année.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="section-head">
+    <h2>Le quiz du jour</h2>
+    <span class="section-num mono">11 questions</span>
+  </div>
+  <div class="quiz-wrap" id="quizWrap"></div>
+</section>
+
+<div class="ad-slot">Emplacement publicitaire — rectangle natif (300×250)</div>
+
+<section id="articles">
+  <div class="section-head">
+    <h2>Articles courts</h2>
+    <span class="section-num mono">10 fiches</span>
+  </div>
+  <div class="articles-list">
+
+    <div class="article">
+      <div class="article-head" onclick="toggleArticle(this)">
+        <div><span class="mono">Art</span><h3>Pourquoi la Joconde est-elle si célèbre ?</h3></div>
+        <div class="article-toggle">+</div>
+      </div>
+      <div class="article-body">
+        <p>Ce n'est ni la technique seule, ni le sourire énigmatique qui expliquent la renommée du tableau : c'est surtout son vol en 1911 au Louvre qui a fait sa une mondiale pendant deux ans, transformant une œuvre respectée en icône populaire. Vinci y travaillait par ailleurs depuis plus de dix ans, retouchant sans relâche les glacis du visage.</p>
+      </div>
+    </div>
+
+    <div class="article">
+      <div class="article-head" onclick="toggleArticle(this)">
+        <div><span class="mono">Histoire</span><h3>D'où vient vraiment le mot « salaire » ?</h3></div>
+        <div class="article-toggle">+</div>
+      </div>
+      <div class="article-body">
+        <p>Le mot remonte au latin <em>salarium</em>, lié à <em>sal</em> (le sel). Contrairement à une légende tenace, les légionnaires romains n'étaient presque jamais payés directement en sel : l'expression désignait plutôt une indemnité destinée, entre autres, à son achat — le sel étant alors une denrée stratégique pour conserver la nourriture.</p>
+      </div>
+    </div>
+
+    <div class="article">
+      <div class="article-head" onclick="toggleArticle(this)">
+        <div><span class="mono">Sciences</span><h3>Pourquoi le ciel est-il bleu ?</h3></div>
+        <div class="article-toggle">+</div>
+      </div>
+      <div class="article-body">
+        <p>La lumière du soleil contient toutes les couleurs, mais l'atmosphère diffuse beaucoup plus efficacement les longueurs d'onde courtes, comme le bleu, que les longues, comme le rouge — un phénomène appelé diffusion de Rayleigh. C'est cette lumière bleue dispersée dans toutes les directions que l'on perçoit en levant les yeux.</p>
+      </div>
+    </div>
+
+    <div class="article">
+      <div class="article-head" onclick="toggleArticle(this)">
+        <div><span class="mono">Géographie</span><h3>Pourquoi y a-t-il deux Corée ?</h3></div>
+        <div class="article-toggle">+</div>
+      </div>
+      <div class="article-body">
+        <p>La division remonte à 1945 : à la chute du Japon, les Alliés partagent provisoirement la péninsule au 38e parallèle, les Soviétiques au nord, les Américains au sud. La guerre de Corée (1950-1953) fige cette frontière sans jamais aboutir à un traité de paix officiel — techniquement, les deux pays sont toujours en guerre.</p>
+      </div>
+    </div>
+
+    <div class="article">
+      <div class="article-head" onclick="toggleArticle(this)">
+        <div><span class="mono">Langue</span><h3>D'où vient l'expression « avoir le cafard » ?</h3></div>
+        <div class="article-toggle">+</div>
+      </div>
+      <div class="article-body">
+        <p>L'expression apparaît au XIXe siècle, popularisée notamment par Baudelaire. Le cafard, insecte associé à la saleté et à l'obscurité, devient une métaphore de la mélancolie qui ronge en silence — l'image d'un mal sombre et tenace, tapi quelque part en soi.</p>
+      </div>
+    </div>
+
+    <div class="article">
+      <div class="article-head" onclick="toggleArticle(this)">
+        <div><span class="mono">Histoire</span><h3>L'Empire romain est-il vraiment « tombé » en 476 ?</h3></div>
+        <div class="article-toggle">+</div>
+      </div>
+      <div class="article-body">
+        <p>Cette date marque la chute de l'Empire romain d'Occident, déposé par Odoacre. Mais l'Empire romain d'Orient, devenu byzantin, a continué d'exister près de mille ans de plus, jusqu'à la prise de Constantinople par les Ottomans en 1453.</p>
+      </div>
+    </div>
+
+    <div class="article">
+      <div class="article-head" onclick="toggleArticle(this)">
+        <div><span class="mono">Sciences</span><h3>Peut-on vraiment voir la Grande Muraille de Chine depuis l'espace ?</h3></div>
+        <div class="article-toggle">+</div>
+      </div>
+      <div class="article-body">
+        <p>C'est l'un des mythes scientifiques les plus tenaces. Plusieurs astronautes, dont des Chinois, ont confirmé qu'elle n'est pas visible à l'œil nu en orbite basse : sa largeur, quelques mètres seulement, est trop fine comparée à la distance d'observation.</p>
+      </div>
+    </div>
+
+    <div class="article">
+      <div class="article-head" onclick="toggleArticle(this)">
+        <div><span class="mono">Art</span><h3>Pourquoi tant de statues antiques n'ont plus de nez ?</h3></div>
+        <div class="article-toggle">+</div>
+      </div>
+      <div class="article-body">
+        <p>Au-delà du vandalisme religieux ou colonial, une raison plus simple explique souvent ces dégâts : le nez est la partie la plus saillante et la plus fine du visage sculpté, donc la plus fragile lors de chutes, transports ou affaissements au fil des siècles.</p>
+      </div>
+    </div>
+
+    <div class="article">
+      <div class="article-head" onclick="toggleArticle(this)">
+        <div><span class="mono">Histoire</span><h3>Pourquoi Rome a-t-elle vraiment chuté ?</h3></div>
+        <div class="article-toggle">+</div>
+      </div>
+      <div class="article-body">
+        <p>La chute de Rome ne s'explique pas par une seule cause. Les historiens pointent une combinaison de facteurs : affaiblissement de l'armée par le recours aux mercenaires, crises économiques répétées, épidémies dévastatrices, instabilité politique (plus de 20 empereurs en 50 ans au IIIe siècle) et pressions militaires extérieures croissantes. Certains ajoutent même le plomb des canalisations romaines comme facteur de dégradation cognitive des élites — une thèse encore débattue.</p>
+      </div>
+    </div>
+
+    <div class="article">
+      <div class="article-head" onclick="toggleArticle(this)">
+        <div><span class="mono">Civilisations</span><h3>Les Mayas avaient-ils vraiment prédit la fin du monde ?</h3></div>
+        <div class="article-toggle">+</div>
+      </div>
+      <div class="article-body">
+        <p>Non — c'est un malentendu occidental. Le calendrier maya dit "long compte" s'achevait le 21 décembre 2012, mais pour les Mayas, cette date marquait simplement la fin d'un grand cycle de 5 125 ans et le début d'un nouveau. Aucun texte maya authentique ne parle de fin du monde. La prophétie apocalyptique est une interprétation moderne, amplifiée par l'industrie du sensationnel.</p>
+      </div>
+    </div>
+
+    <div class="article">
+      <div class="article-head" onclick="toggleArticle(this)">
+        <div><span class="mono">Histoire</span><h3>D'où vient le calendrier que nous utilisons ?</h3></div>
+        <div class="article-toggle">+</div>
+      </div>
+      <div class="article-body">
+        <p>Le calendrier grégorien, adopté en 1582 sous le pape Grégoire XIII, est une correction du calendrier julien instauré par Jules César en 45 av. J.-C. Le problème : le calendrier julien accumulait un retard de 11 minutes par an, soit 10 jours de décalage en 1582. Pour corriger cela, on a supprimé d'un coup 10 jours en octobre 1582. Certains pays protestants n'ont adopté cette réforme qu'au XVIIIe siècle — la Grande-Bretagne en 1752.</p>
+      </div>
+    </div>
+
+    <div class="article">
+      <div class="article-head" onclick="toggleArticle(this)">
+        <div><span class="mono">Civilisations</span><h3>Qui a vraiment construit les pyramides d'Égypte ?</h3></div>
+        <div class="article-toggle">+</div>
+      </div>
+      <div class="article-body">
+        <p>Contrairement à la légende, les pyramides n'ont pas été construites par des esclaves. Les fouilles archéologiques menées depuis les années 1990 ont révélé les traces d'un village ouvrier organisé, avec boulangeries, brasseries et infirmeries. Les bâtisseurs étaient des ouvriers salariés, bien nourris et soignés — certains ont même gravé des noms d'équipe comme "Les amis de Khéops" sur les pierres.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="ad-slot">Emplacement publicitaire — pavé bas de page (responsive)</div>
+
+<section id="a-propos" style="max-width:760px;">
+  <div class="section-head">
+    <h2>À propos</h2>
+    <span class="section-num mono">Fiche 000</span>
+  </div>
+  <p style="color:var(--parchment-dim); margin-bottom:16px;">Le Coin du Savoir est un site personnel né d'une idée simple : la culture générale n'a pas besoin d'être indigeste pour être sérieuse. Chaque semaine, on y range de nouvelles fiches — anecdotes vérifiées, petits quiz, articles courts — comme on classerait des curiosités dans les tiroirs d'un cabinet du XIXe siècle.</p>
+  <div class="specimen" style="transform:none; margin-bottom:20px;">
+    <p>Ce site est tenu par une seule personne, sans équipe éditoriale ni rédaction professionnelle. L'objectif n'est pas l'exhaustivité, mais la régularité : une nouvelle fournée de contenu chaque semaine.</p>
+  </div>
+  <h3 style="color:var(--brass-light); font-size:1.1rem; margin-bottom:10px;">D'où viennent les informations ?</h3>
+  <p style="color:var(--parchment-dim); margin-bottom:16px;">Chaque anecdote, question de quiz et article est vérifié avant publication à partir de sources fiables (encyclopédies, articles scientifiques de vulgarisation, sources historiques reconnues). Si une erreur se glisse malgré tout quelque part, n'hésitez pas à nous le signaler.</p>
+  <h3 style="color:var(--brass-light); font-size:1.1rem; margin-bottom:10px;">Comment nous contacter</h3>
+  <p style="color:var(--parchment-dim);">Pour toute question, correction ou suggestion de sujet, vous pouvez nous écrire à <a href="mailto:contact@le-coin-du-savoir.com" style="color:var(--brass-light);">contact@le-coin-du-savoir.com</a>.</p>
+</section>
+
+<section id="confidentialite" style="max-width:760px;">
+  <div class="section-head">
+    <h2>Politique de confidentialité</h2>
+    <span class="section-num mono">Maj juin 2026</span>
+  </div>
+  <p style="color:var(--parchment-dim); margin-bottom:14px;">Cette politique explique quelles données sont collectées sur Le Coin du Savoir, et comment elles sont utilisées.</p>
+
+  <h3 style="color:var(--brass-light); font-size:1.05rem; margin:20px 0 8px;">Hébergement</h3>
+  <p style="color:var(--parchment-dim); margin-bottom:14px;">Le site est hébergé par Cloudflare. Les données techniques liées à l'hébergement (adresse IP, journaux de connexion) sont traitées selon la politique de confidentialité propre à cet hébergeur.</p>
+
+  <h3 style="color:var(--brass-light); font-size:1.05rem; margin:20px 0 8px;">Cookies et publicité</h3>
+  <p style="color:var(--parchment-dim); margin-bottom:14px;">Le site a vocation à afficher des publicités fournies par des régies tierces, notamment Google AdSense. Ces régies peuvent déposer des cookies sur votre appareil afin de mesurer l'audience et personnaliser les annonces, sauf si vous vous y opposez. Vous pouvez gérer vos préférences publicitaires dans les <a href="https://adssettings.google.com" target="_blank" rel="noopener" style="color:var(--brass-light);">paramètres de publicité Google</a>.</p>
+
+  <h3 style="color:var(--brass-light); font-size:1.05rem; margin:20px 0 8px;">Vos droits</h3>
+  <p style="color:var(--parchment-dim);">Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Pour l'exercer, contactez-nous à <a href="mailto:contact@le-coin-du-savoir.com" style="color:var(--brass-light);">contact@le-coin-du-savoir.com</a>.</p>
+</section>
+
+<footer>
+  <p>LE COIN DU SAVOIR — FICHES DE CULTURE GÉNÉRALE · MIS À JOUR CHAQUE SEMAINE</p>
+  <p style="margin-top:8px;"><a href="#a-propos" style="color:rgba(236,227,208,0.6);">À propos</a> · <a href="#confidentialite" style="color:rgba(236,227,208,0.6);">Confidentialité</a></p>
+</footer>
+
+<script>
+  // ---- flip cards ----
+  document.querySelectorAll('.flip-card').forEach(card=>{
+    function flip(){
+      const flipped = card.classList.toggle('flipped');
+      card.setAttribute('aria-pressed', flipped ? 'true':'false');
+    }
+    card.addEventListener('click', flip);
+    card.addEventListener('keydown', e=>{
+      if(e.key==='Enter' || e.key===' '){ e.preventDefault(); flip(); }
+    });
+  });
+
+  // ---- articles accordion ----
+  function toggleArticle(headEl){
+    const art = headEl.parentElement;
+    const body = art.querySelector('.article-body');
+    const isOpen = art.classList.contains('open');
+    document.querySelectorAll('.article.open').forEach(a=>{
+      a.classList.remove('open');
+      a.querySelector('.article-body').style.maxHeight = null;
+    });
+    if(!isOpen){
+      art.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 40 + 'px';
+    }
+  }
+
+  // ---- quiz ----
+  const QUESTIONS = [
+    {
+      q: "Quel est le seul mammifère capable de voler activement ?",
+      options: ["L'écureuil volant", "La chauve-souris", "Le phalanger volant", "Le ptérodactyle"],
+      correct: 1,
+      note: "L'écureuil et le phalanger volants planent, ils ne volent pas activement."
+    },
+    {
+      q: "Quelle est la capitale de l'Australie ?",
+      options: ["Sydney", "Melbourne", "Canberra", "Perth"],
+      correct: 2,
+      note: "Canberra a été choisie en 1908, à mi-chemin entre Sydney et Melbourne, pour apaiser leur rivalité."
+    },
+    {
+      q: "Combien d'os compte le corps humain adulte ?",
+      options: ["186", "206", "226", "246"],
+      correct: 1,
+      note: "Un nourrisson en a environ 300 : plusieurs fusionnent en grandissant."
+    },
+    {
+      q: "Qui a peint « La Nuit étoilée » ?",
+      options: ["Claude Monet", "Paul Cézanne", "Vincent van Gogh", "Edvard Munch"],
+      correct: 2,
+      note: "Van Gogh l'a peinte en 1889 depuis la fenêtre de l'asile de Saint-Rémy-de-Provence."
+    },
+    {
+      q: "Quel est le plus long fleuve du monde ?",
+      options: ["Le Nil", "L'Amazone", "Le Yangtsé", "Le Mississippi"],
+      correct: 0,
+      note: "Le débat Nil/Amazone continue selon la méthode de mesure, mais le Nil reste la référence historique."
+    },
+    {
+      q: "Quel pays a inventé l'imprimerie à caractères mobiles métalliques ?",
+      options: ["L'Allemagne", "La France", "La Corée", "L'Italie"],
+      correct: 2,
+      note: "Le Jikji, imprimé en Corée en 1377, précède Gutenberg de près de 80 ans."
+    },
+    {
+      q: "Quel est l'organe le plus volumineux du corps humain ?",
+      options: ["Le foie", "Le cerveau", "La peau", "Le poumon"],
+      correct: 2,
+      note: "La peau représente à elle seule environ 16 % du poids corporel total."
+    },
+    {
+      q: "Quelle planète du système solaire tourne sur elle-même « à l'envers » ?",
+      options: ["Mars", "Vénus", "Jupiter", "Saturne"],
+      correct: 1,
+      note: "Vénus tourne dans le sens inverse des autres planètes, probablement à cause d'une collision ancienne."
+    },
+    {
+      q: "Qui a composé « La Flûte enchantée » ?",
+      options: ["Ludwig van Beethoven", "Wolfgang Amadeus Mozart", "Johann Sebastian Bach", "Joseph Haydn"],
+      correct: 1,
+      note: "Mozart l'a créée en 1791, l'année même de sa mort."
+    },
+    {
+      q: "Quel océan est le plus vaste du globe ?",
+      options: ["L'Atlantique", "L'Indien", "L'Arctique", "Le Pacifique"],
+      correct: 3,
+      note: "Le Pacifique couvre à lui seul près d'un tiers de la surface de la Terre."
+    }
+  ];
+
+  let qIndex = 0, score = 0;
+  const quizWrap = document.getElementById('quizWrap');
+
+  function renderQuiz(){
+    if(qIndex >= QUESTIONS.length){
+      quizWrap.innerHTML = `
+        <div class="quiz-final">
+          <div class="mono" style="color:#4a4332;font-size:0.75rem;">Résultat</div>
+          <div class="score-big">${score} / ${QUESTIONS.length}</div>
+          <p style="color:#4a4332;">${score===QUESTIONS.length ? "Sans faute. Le cabinet vous salue." : "Pas mal — une nouvelle fournée demain."}</p>
+          <button class="btn btn-primary" onclick="restartQuiz()">Rejouer</button>
+        </div>`;
+      return;
+    }
+    const item = QUESTIONS[qIndex];
+    quizWrap.innerHTML = `
+      <div class="quiz-top">
+        <span class="quiz-progress">Question ${qIndex+1} / ${QUESTIONS.length}</span>
+        <span class="quiz-score">Score : ${score}</span>
+      </div>
+      <div class="quiz-q">${item.q}</div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+    `;
+    const optsEl = document.getElementById('quizOptions');
+    item.options.forEach((opt, i)=>{
+      const b = document.createElement('button');
+      b.className = 'quiz-opt';
+      b.textContent = opt;
+      b.onclick = ()=>answer(i);
+      optsEl.appendChild(b);
+    });
+  }
+
+  function answer(i){
+    const item = QUESTIONS[qIndex];
+    const buttons = document.querySelectorAll('.quiz-opt');
+    buttons.forEach((b,idx)=>{
+      b.disabled = true;
+      if(idx === item.correct) b.classList.add('correct');
+      else if(idx === i) b.classList.add('wrong');
+    });
+    if(i === item.correct) score++;
+    document.getElementById('quizFeedback').textContent = item.note;
+    setTimeout(()=>{ qIndex++; renderQuiz(); }, 1600);
+  }
+
+  function restartQuiz(){
+    qIndex = 0; score = 0; renderQuiz();
+  }
+
+  renderQuiz();
+</script>
+
+</body>
+</html>
